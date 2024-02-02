@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  font-family: "Jost", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: #008080;
+  --background-color: #e5ebeb;
+  --card-background-color: #fff;
+  --text-color: #333;
+  --transition: 0.3s;
+}
+
+:root[data-theme="dark"] {
+  --background-color: #2b3542;
+  --card-background-color: #151924;
+  --text-color: #ced0d3;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100svh;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+header {
+  padding: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1200px, 90%);
+  margin-inline: auto;
+}
+
+main {
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  width: min(360px, 90%);
+  background: var(--card-background-color);
+  transition: var(--transition);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+  display: grid;
+  gap: 20px;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.25));
+}
+
+.card-info {
+  display: grid;
+  gap: 10px;
+}
+
+.card-info .rating {
+  color: gold;
+}
+
+.card-info h3 {
+  color: var(--main-color);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card-info p {
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.card button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: var(--main-color);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 10px;
+  transition: var(--transition);
+}
+
+.card button:active,
+.card button:hover {
+  filter: brightness(1.2);
+}
+
+/* light/dark toggle */
+
+.toggle {
+  --size: 24px;
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  font-size: var(--size);
+  cursor: pointer;
+  position: relative;
+  line-height: 1;
+}
+
+.toggle input {
+  display: none;
+}
+
+.toggle .bi {
+  position: absolute;
+  transition: var(--transition);
+  line-height: 0;
+}
+
+.toggle .bi-moon {
+  rotate: -90deg;
+  opacity: 0;
+}
+
+.toggle input:checked ~ .bi-moon,
+.toggle .bi-sun {
+  rotate: 0deg;
+  opacity: 1;
+}
+
+.toggle input:checked ~ .bi-sun {
+  rotate: 90deg;
+  opacity: 0;
+}
